@@ -1,0 +1,3 @@
+rootProject.name = 'sellers_client'
+
+include ':app'

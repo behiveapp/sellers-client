@@ -1,0 +1,35 @@
+{
+  "name": "sellers_client",
+  "version": "0.0.1",
+  "description": "Seller client at Behive",
+  "author": "Edson Júnior <ejunior.batista@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "react": "^16.3.1",
+    "react-art": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-native": "0.55.3",
+    "react-native-web": "^0.6.1",
+    "webpack": "^4.6.0"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "compression-webpack-plugin": "^1.1.11",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^3.1.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
