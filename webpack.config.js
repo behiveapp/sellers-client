@@ -32,11 +32,21 @@ if (process.env.NODE_ENV == "production") {
       minRatio: 0
     })
   ];
+} else {
+  plugins = [
+    ...plugins,
+    new webpack.DefinePlugin({
+      'process.env' : {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        BIFROST_URL: JSON.stringify('http://localhost:3000/graphql')
+      }
+    })
+  ]
 }
 
 module.exports = {
   entry: {
-    main: './index.web.js',
+    main: ['babel-polyfill','./index.web.js',]
   },
   output: {
     path: __dirname,

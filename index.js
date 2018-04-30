@@ -1,15 +1,16 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-import configureStore from './src/configureStore';
+import store from './src/store/configureStore';
+import saga from './src/sagas/rootSaga';
 import App from './src/App';
 
-const store = configureStore();
+store.runSaga(saga);
 
-const RNRedux = () => (
+const Root = () => (
   <Provider store={store}>
     <App />
   </Provider>
 );
 
-AppRegistry.registerComponent('sellers_client', () => RNRedux);
+AppRegistry.registerComponent('sellers_client', () => Root);
