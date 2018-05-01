@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductItemUI from './ProductItemUI';
+import ProductItemView from '../children/ProductItem/ProductItemView';
 import { array } from 'prop-types';
 import {
   ScrollView,
@@ -7,15 +7,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const ProductsListUI = ({ products }) => {
+const ProductsListView = ({ products }) => {
   return (
     <ScrollView>
-      { products.map((product, idx) => (<ProductItemUI key={idx} product={product} />))}
+      { products.map((product, idx) => (<ProductItemView key={idx} product={product} />))}
     </ScrollView>
   );
 };
 
-ProductsListUI.propTypes = {
+ProductsListView.propTypes = {
   products: array,
 };
 
@@ -27,5 +27,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductsListUI;
+export default ProductsListView;
 

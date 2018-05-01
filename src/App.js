@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import ProductList from './components/ProductsList/components/ProductList';
+import ProductList from './components/ProductsList/containers/ProductList';
 
 import {
   Platform,

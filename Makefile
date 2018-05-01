@@ -1,3 +1,9 @@
+install:
+	docker-compose build
+docker:
+	docker-compose up
+mass-insert:
+	docker-compose run bifrost src/script/mass-insert.py
 start:
 	npm start
 start-web:

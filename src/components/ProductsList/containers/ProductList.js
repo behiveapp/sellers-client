@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../actions';
-import ProductsListUI from './ProductListUI';
+import ProductsListView from '../components/ProductListView';
 
 class ProductList extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class ProductList extends Component {
   }
 
   render(){
-    return <ProductsListUI products={this.props.products} />
+    return <ProductsListView products={this.props.products} />
   }
 }
 
