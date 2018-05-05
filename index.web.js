@@ -1,8 +1,9 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-import store from './src/store/configureStore';
-import saga from './src/sagas/rootSaga';
+import store from './src/configureStore';
+import saga from './src/rootSaga';
+import './src/lib/VectorIcons';
 import App from './src/App';
 
 store.runSaga(saga);

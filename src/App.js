@@ -6,27 +6,39 @@
 
 import React, { Component } from 'react';
 import ProductList from './components/ProductsList/containers/ProductList';
+import ClientsList from './components/ClientsList/containers/ClientsList';
 
 import {
   Platform,
   StyleSheet,
+  StatusBar,
   Text,
   View
 } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+
+
+const MainTab = TabNavigator({
+  Products: { screen: ProductList },
+  Clients: { screen: ClientsList },
+},{
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#F8C634'
+    }
+  }
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ProductList />
+        <StatusBar
+          backgroundColor="#edb81e"
+          barStyle="light-content"
+        />
+        <MainTab />
       </View>
     )
   }
@@ -36,6 +48,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f8f8',
-    padding: 10
   },
 });1

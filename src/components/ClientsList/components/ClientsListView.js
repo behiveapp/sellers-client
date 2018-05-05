@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductItemView from '../children/ProductItem/ProductItemView';
+import ClientItemView from '../children/ClientItem/ClientItemView';
 import { array } from 'prop-types';
 import {
   ScrollView,
@@ -7,16 +7,16 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const ProductsListView = ({ products }) => {
+const ClientsListView = ({ clients }) => {
   return (
     <ScrollView style={styles.container}>
-      { products.map((product, idx) => (<ProductItemView key={idx} product={product} />))}
+      { clients.map((client, idx) => (<ClientItemView key={idx} client={client} />))}
     </ScrollView>
   );
 };
 
-ProductsListView.propTypes = {
-  products: array,
+ClientsListView.propTypes = {
+  clients: array,
 };
 
 const styles = StyleSheet.create({
@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductsListView;
+export default ClientsListView;
 

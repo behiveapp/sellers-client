@@ -1,8 +1,8 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const webpack = require('webpack');
+const path = require('path');
 
 const getEnvConfig = () => {
-  const path = require('path');
   const { config } = require('dotenv');
   const envFilePath = path.resolve(__dirname, '.env');
   const Config = config({ path: envFilePath }).parsed;
@@ -83,6 +83,23 @@ module.exports = {
         loader: "url-loader",
         options: {
           limit: 8192
+        }
+      },
+      {
+        test: /\.ttf$/,
+        loader: "url-loader",
+        include: path.resolve(__dirname, "node_modules/react-native-vector-icons"),
+      },
+      {
+        test: /\.js?$/,
+        include: [
+          path.resolve(__dirname, 'node_modules/react-native-vector-icons'),
+        ],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["react-native"]
+          }
         }
       }
     ],

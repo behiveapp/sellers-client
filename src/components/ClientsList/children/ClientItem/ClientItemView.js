@@ -7,27 +7,23 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const ProductItemView = ({ product }) => {
+const ClientItemView = ({ client }) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{product.name}</Text>
-        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.title}>{client.name}</Text>
       </View>
-      <View style={styles.actionsContainer}>
-        <Text style={styles.price}>{product.price}</Text>
-        <View style={styles.actions}>
-          <Icon name="pencil" style={styles.actionIcon} size={14} />
-          <Icon name="trash" style={styles.actionIcon} size={14} />
-          <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
-        </View>
+      <View style={styles.actions}>
+        <Icon name="pencil" style={styles.actionIcon} size={14} />
+        <Icon name="trash" style={styles.actionIcon} size={14} />
+        <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
       </View>
     </View>
   );
 };
 
-ProductItemView.propTypes = {
-  product: object,
+ClientItemView.propTypes = {
+  client: object,
 };
 
 const styles = StyleSheet.create({
@@ -40,7 +36,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     borderWidth: 1,
-    height: 100,
+    height: 50,
     borderColor: '#f8f8f8',
   },
   detailsContainer: {
@@ -48,25 +44,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flexGrow: 6,
   },
-  actionsContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    flexGrow: 1,
-  },
   title: {
     fontWeight: 'bold',
     color: '#35718B'
   },
-  description: {
-    color: '#999999'
-  },
-  price: {
-    fontWeight: 'bold',
-    color: '#F8C634',
-    textAlign: 'center',
-  },
   actions: {
     flex: 1,
+    flexGrow: 1,
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -78,4 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductItemView;
+export default ClientItemView;
