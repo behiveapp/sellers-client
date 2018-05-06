@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import ProductList from './components/ProductsList/containers/ProductList';
 import ClientsList from './components/ClientsList/containers/ClientsList';
+import CartsList from './components/CartsList/containers/CartsList';
 
 import {
   Platform,
@@ -20,8 +21,9 @@ import { TabNavigator } from 'react-navigation';
 
 
 const MainTab = TabNavigator({
-  Products: { screen: ProductList },
-  Clients: { screen: ClientsList },
+  Produtos: { screen: ProductList },
+  Clientes: { screen: ClientsList },
+  Pedidos: { screen: CartsList },
 },{
   tabBarOptions: {
     style: {

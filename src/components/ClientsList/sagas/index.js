@@ -5,10 +5,9 @@ import ClientsService from '../../../services/bifrost/ClientsService';
 
 export function* fetchClients(){
   yield take(FETCH_CLIENTS);
-console.log('FETCH_CLIENTS');
-const clientsService = new ClientsService();
-const data = yield call([clientsService, 'getClients']);
-console.log(data);
+  
+  const clientsService = new ClientsService();
+  const data = yield call([clientsService, 'getClients']);
 
   yield put(clientsFetched(data));
 }
