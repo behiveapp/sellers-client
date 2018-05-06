@@ -1,11 +1,25 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const webpack = require('webpack');
+const path = require('path');
 
-let plugins = [];
+const getEnvConfig = () => {
+  const { config } = require('dotenv');
+  const envFilePath = path.resolve(__dirname, '.env');
+  const Config = config({ path: envFilePath }).parsed;
+
+  return JSON.stringify(Config);
+}
+
+let plugins = [
+  new webpack.DefinePlugin({
+    '__REACT_WEB_CONFIG__': getEnvConfig()
+  })
+];
 
 if (process.env.NODE_ENV == "production") {
   plugins = [
     ...plugins,
+    ReactWebConfig(envFilePath),
     new webpack.DefinePlugin({
       // 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       "process.env.NODE_ENV": "'production'"
@@ -37,8 +51,7 @@ if (process.env.NODE_ENV == "production") {
     ...plugins,
     new webpack.DefinePlugin({
       'process.env' : {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        BIFROST_URL: JSON.stringify('http://localhost:3000/graphql')
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     })
   ]
@@ -61,7 +74,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["react", "env"]
+            presets: ["react-native", "env"]
           }
         }
       },
@@ -71,6 +84,23 @@ module.exports = {
         options: {
           limit: 8192
         }
+      },
+      {
+        test: /\.ttf$/,
+        loader: "url-loader",
+        include: path.resolve(__dirname, "node_modules/react-native-vector-icons"),
+      },
+      {
+        test: /\.js?$/,
+        include: [
+          path.resolve(__dirname, 'node_modules/react-native-vector-icons'),
+        ],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["react-native"]
+          }
+        }
       }
     ],
   },
@@ -78,6 +108,7 @@ module.exports = {
   resolve: {
     alias: {
       'react-native': 'react-native-web',
+      'react-native-config': 'react-web-config',
     },
   },
   devServer: {

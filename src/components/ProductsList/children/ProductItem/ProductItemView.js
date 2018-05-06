@@ -5,8 +5,9 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const ProductItemUI = ({ product }) => {
+const ProductItemView = ({ product }) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailsContainer}>
@@ -15,13 +16,17 @@ const ProductItemUI = ({ product }) => {
       </View>
       <View style={styles.actionsContainer}>
         <Text style={styles.price}>{product.price}</Text>
-        <Text style={styles.actions}>{product.price}</Text>
+        <View style={styles.actions}>
+          <Icon name="pencil" style={styles.actionIcon} size={14} />
+          <Icon name="trash" style={styles.actionIcon} size={14} />
+          <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
+        </View>
       </View>
     </View>
   );
 };
 
-ProductItemUI.propTypes = {
+ProductItemView.propTypes = {
   product: object,
 };
 
@@ -41,12 +46,12 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 1,
     flexDirection: 'column',
-    flexGrow: 5
+    flexGrow: 6,
   },
   actionsContainer: {
     flex: 1,
     flexDirection: 'column',
-    flexGrow: 1
+    flexGrow: 1,
   },
   title: {
     fontWeight: 'bold',
@@ -57,9 +62,20 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: 'bold',
-    color: '#F8C634'
+    color: '#F8C634',
+    textAlign: 'center',
   },
+  actions: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  actionIcon: {
+    alignItems: 'center',
+    color: '#666666',
+    padding: 5,
+    paddingTop: 10
+  }
 });
 
-export default ProductItemUI;
-
+export default ProductItemView;
