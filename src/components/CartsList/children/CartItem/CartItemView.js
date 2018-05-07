@@ -11,12 +11,16 @@ const CartItemView = ({ cart }) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{cart.createdAt}</Text>
+        <Text style={styles.title}>{cart.Buyer.name}</Text>
+        <Text style={styles.description}>{cart.Buyer.identifier}</Text>
       </View>
-      <View style={styles.actions}>
-        <Icon name="pencil" style={styles.actionIcon} size={14} />
-        <Icon name="trash" style={styles.actionIcon} size={14} />
-        <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
+      <View style={styles.actionsContainer}>
+        <Text style={styles.price}>{cart.totalPrice}</Text>
+        <View style={styles.actions}>
+          <Icon name="pencil" style={styles.actionIcon} size={14} />
+          <Icon name="trash" style={styles.actionIcon} size={14} />
+          <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
+        </View>
       </View>
     </View>
   );
@@ -36,7 +40,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     borderWidth: 1,
-    height: 50,
+    height: 80,
     borderColor: '#f8f8f8',
   },
   detailsContainer: {
@@ -44,13 +48,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flexGrow: 6,
   },
+  actionsContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    flexGrow: 1,
+  },
   title: {
     fontWeight: 'bold',
     color: '#35718B'
   },
+  description: {
+    color: '#999999'
+  },
+  price: {
+    fontWeight: 'bold',
+    color: '#F8C634',
+    textAlign: 'center',
+  },
   actions: {
     flex: 1,
-    flexGrow: 1,
     flexDirection: 'row',
     justifyContent: 'center',
   },
