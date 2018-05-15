@@ -6,12 +6,12 @@ class CartsService extends BifrostService {
   async getCarts (sellerId) {
     const query = `query{
       Carts(sellerId:"${sellerId}"){
-        createdAt, totalPrice,
+        id, totalPrice
         Buyer {
-          name, identifier
+          id, name, identifier
         },
         Products {
-          code, name, price
+          id, code, name, price
         }
       }
     }`;

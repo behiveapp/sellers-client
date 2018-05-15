@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-import CartItemView from '../children/CartItem/CartItemView';
-import { array } from 'prop-types';
+import CartItemView from '../children/CartItem/components/CartItemView';
+import { object } from 'prop-types';
 import {
   ScrollView,
   Text,
   StyleSheet,
 } from 'react-native';
 
-const CartsListView = ({ carts }) => {
-  console.log(carts);
+const CartsListView = ({ carts, navigation }) => {
   return (
     <ScrollView style={styles.container}>
-      { carts.map((cart, idx) => (<CartItemView key={idx} cart={cart} />))}
+      { Object.keys(carts).map((id) => (<CartItemView key={id} cart={carts[id]} navigation={navigation} />))}
     </ScrollView>
   );
 };
 
 CartsListView.propTypes = {
-  carts: array,
+  carts: object,
+  navigation: object
 };
 
 const styles = StyleSheet.create({
