@@ -8,7 +8,7 @@ export default class BifrostService {
     this.url = BIFROST_URL;
   }
 
-  makeRequest(query: string) {
-    return axios.post(this.url, { query });
+  makeRequest(query: string, variables: object) {
+    return axios.post(this.url, { query, variables });
   }
 }

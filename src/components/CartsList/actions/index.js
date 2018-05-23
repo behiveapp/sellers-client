@@ -1,9 +1,11 @@
 import { FETCH_CARTS, CARTS_FETCHED } from '../constants';
 
-export function fetchCarts(sellerId) {
+export function fetchCarts(sellerId, navigation) {
+  console.log('------')
   return {
     type: FETCH_CARTS,
-    payload: { sellerId }
+    payload: { sellerId },
+    navigation
   }
 }
 

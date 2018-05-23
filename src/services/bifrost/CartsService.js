@@ -23,6 +23,66 @@ class CartsService extends BifrostService {
       console.log(err);
     }
   }
+
+  async openCart (buyer, seller) {
+    const newBuyer = {
+      Id: buyer.id,
+      identifier: buyer.identifier,
+      name: buyer.name
+    };
+
+    const query = `
+      mutation OpenCartMutation($buyer: BuyerInput!, $seller: SellerInput!) {
+        openCart(buyerData: $buyer, sellerData: $seller) {
+          cart {
+            id
+            Buyer {
+              name,
+              identifier
+            }
+            Products {
+              name
+            }
+          }
+        }
+      }
+    `;
+
+    try{
+      const response = await this.makeRequest(query, {buyer: newBuyer, seller});
+      const { cart } = response.data.data.openCart;
+      return cart;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async addProduct (cart_id, product_id) {
+    const query = `
+      mutation AddProductMutation($cart_id: String!, $product_id: String!) {
+        addProduct(cartId: $cart_id, productId: $product_id) {
+          cart {
+            id
+            Buyer {
+              name,
+              identifier
+            }
+            Products {
+              name
+            }
+          }
+        }
+      }
+    `;
+
+    try{
+      const response = await this.makeRequest(query, {cart_id, product_id});
+      const { cart } = response.data.data.addProduct;
+      return cart;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 
 export default CartsService;

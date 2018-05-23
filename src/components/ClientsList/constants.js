@@ -1,2 +1,4 @@
 export const FETCH_CLIENTS = 'FETCH_CLIENTS';
 export const CLIENTS_FETCHED = 'CLIENTS_FETCHED';
+export const OPEN_CART = 'OPEN_CART';
+export const CART_OPENED = 'CART_OPENED';

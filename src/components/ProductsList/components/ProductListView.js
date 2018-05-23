@@ -7,10 +7,10 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const ProductsListView = ({ products }) => {
+const ProductsListView = ({ products, navigation }) => {
   return (
     <ScrollView style={styles.container}>
-      { products.map((product, idx) => (<ProductItemView key={idx} product={product} />))}
+      { products.map((product, idx) => (<ProductItemView key={idx} product={product} navigation={navigation}/>))}
     </ScrollView>
   );
 };

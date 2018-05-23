@@ -5,7 +5,6 @@ import ProductsService from '../../../services/bifrost/ProductsService';
 
 export function* fetchProducts(){
   yield take(FETCH_PRODUCTS);
-
   const productsService = new ProductsService();
   const data = yield call([productsService, 'getProducts']);
 

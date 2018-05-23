@@ -24,7 +24,8 @@ const mainTab = createMaterialTopTabNavigator({
 
 const mainStack = StackNavigator({
   Tabs: { screen: mainTab },
-  CartDetails: { screen: CartDetails }
+  CartDetails: { screen: CartDetails },
+  ClientesCart: { screen: ClientsList, navigationOptions: { title: 'Escolha o cliente' }},
 }, {
   navigationOptions: {
     title: 'Behive',
