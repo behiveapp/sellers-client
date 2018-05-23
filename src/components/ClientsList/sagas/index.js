@@ -15,10 +15,12 @@ export function* fetchClientsSaga(){
 }
 
 export function* openCartAndAddProductSaga(){
-  const { buyer, seller, product, navigation } = yield take(OPEN_CART);
-  
-  const cartsService = new CartsService();
-  const cart = yield call([cartsService, 'openCart'], buyer, seller);
-  const data = yield call([cartsService, 'addProduct'], cart.id, product.id);
-  yield put(fetchCarts('5aa75156f8245d00016bf8ab', navigation));
+  while(true) {
+    const { buyer, seller, product, navigation } = yield take(OPEN_CART);
+    
+    const cartsService = new CartsService();
+    const cart = yield call([cartsService, 'openCart'], buyer, seller);
+    const data = yield call([cartsService, 'addProduct'], cart.id, product.id);
+    yield put(fetchCarts('5aa75156f8245d00016bf8ab', navigation));
+  }
 }

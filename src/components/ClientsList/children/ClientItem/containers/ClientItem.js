@@ -15,7 +15,7 @@ class ClientItem extends Component {
       fullName: 'Império das Grifes',
       shortName: 'Império das Grifes LTDA'
     };
-
+    
     if(product) {
       openCart(client, currentSeller, product, navigation);
     }
