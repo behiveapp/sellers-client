@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import ProductList from '../../components/ProductsList/containers/ProductList';
@@ -22,7 +22,7 @@ const mainTab = createMaterialTopTabNavigator({
   },
 });
 
-const mainStack = StackNavigator({
+const mainStack = createStackNavigator({
   Tabs: { screen: mainTab },
   CartDetails: { screen: CartDetails },
   ClientesCart: { screen: ClientsList, navigationOptions: { title: 'Escolha o cliente' }},

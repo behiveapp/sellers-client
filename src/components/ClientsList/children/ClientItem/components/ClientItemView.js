@@ -14,11 +14,6 @@ const ClientItemView = ({ client, navigation, onPressAction }) => {
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{client.name}</Text>
       </View>
-      <View style={styles.actions}>
-        <Icon name="pencil" style={styles.actionIcon} size={14} />
-        <Icon name="trash" style={styles.actionIcon} size={14} />
-        <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
-      </View>
     </TouchableOpacity>
   );
 };

@@ -14,3 +14,4 @@ const Root = () => (
 );
 
 AppRegistry.registerComponent('sellers_client', () => Root);
+AppRegistry.registerComponent('main', () => Root);

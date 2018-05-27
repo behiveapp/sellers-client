@@ -28,9 +28,7 @@ class ProductItemView extends Component {
         <View style={styles.actionsContainer}>
           <Text style={styles.price}>{product.price}</Text>
           <View style={styles.actions}>
-            <Icon name="shopping-cart" style={styles.actionIcon} size={14} onPress={this.openClientsScreen}/>
-            <Icon name="trash" style={styles.actionIcon} size={14} />
-            <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
+            <Icon name="shopping-cart" style={styles.actionIcon} size={24} onPress={this.openClientsScreen}/>
           </View>
         </View>
       </View>

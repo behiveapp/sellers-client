@@ -1,10 +1,9 @@
 // @Flow
 import axios from 'axios';
-import Config from 'react-native-config';
+import { BIFROST_URL } from 'react-native-dotenv';
 
 export default class BifrostService {
   constructor () {
-    const { BIFROST_URL } = Config;
     this.url = BIFROST_URL;
   }
 

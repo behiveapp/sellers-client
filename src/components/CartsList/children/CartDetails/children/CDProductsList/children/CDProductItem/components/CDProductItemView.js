@@ -17,11 +17,6 @@ const CDProductItemView = ({ product }) => {
       </View>
       <View style={styles.actionsContainer}>
         <Text style={styles.price}>{product.price}</Text>
-        <View style={styles.actions}>
-          <Icon name="pencil" style={styles.actionIcon} size={14} />
-          <Icon name="trash" style={styles.actionIcon} size={14} />
-          <Icon name="ellipsis-v" style={styles.actionIcon} size={14} />
-        </View>
       </View>
     </View>
   );

@@ -83,6 +83,33 @@ class CartsService extends BifrostService {
       console.log(err);
     }
   }
+
+  async closeCart (cart_id) {
+    const query = `
+      mutation CloseCartMutation($cart_id: String!) {
+        closeCart(cartId: $cart_id) {
+          cart {
+            id
+            Buyer {
+              name,
+              identifier
+            }
+            Products {
+              name
+            }
+          }
+        }
+      }
+    `;
+
+    try{
+      const response = await this.makeRequest(query, { cart_id });
+      const { cart } = response.data.data.closeCart;
+      return cart;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 
 export default CartsService;

@@ -6,6 +6,8 @@ mass-insert:
 	docker-compose run bifrost src/script/mass-insert.py
 start:
 	npm start
+expo:
+	exp start
 start-web:
 	./node_modules/.bin/webpack-dev-server --inline --mode development
 start-android:

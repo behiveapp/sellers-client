@@ -1,4 +1,9 @@
 {
   "name": "sellers_client",
-  "displayName": "sellers_client"
+  "displayName": "sellers_client",
+  "expo": {
+    "name": "Sellers Client",
+    "slug": "sellers-client",
+    "sdkVersion": "27.0.0"
+  }
 }
