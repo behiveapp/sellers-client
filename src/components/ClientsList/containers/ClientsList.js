@@ -10,7 +10,8 @@ class ClientsList extends Component {
   }
 
   render(){
-    return <ClientsListView clients={this.props.clients} />
+    const { clients, navigation } = this.props;
+    return <ClientsListView clients={clients} navigation={navigation}/>
   }
 }
 

@@ -74,7 +74,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["react-native", "env"]
+            presets: ["react-native", "env", "react-native-dotenv"]
           }
         }
       },

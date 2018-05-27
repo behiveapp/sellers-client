@@ -10,7 +10,8 @@ class CartsList extends Component {
   }
 
   render(){
-    return <CartsListView carts={this.props.carts} />
+    const {carts, navigation } = this.props;
+    return <CartsListView carts={carts} navigation={navigation} />
   }
 }
 
