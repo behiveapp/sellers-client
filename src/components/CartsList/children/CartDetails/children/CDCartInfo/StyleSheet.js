@@ -12,18 +12,13 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     borderWidth: 1,
-    height: 50,
+    flexGrow: 1,
     borderColor: '#f8f8f8',
   },
-  detailsContainer: {
+  clientDetails: {
     flex: 1,
     flexDirection: 'column',
-    flexGrow: 6,
-  },
-  actionsContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    flexGrow: 1,
+    flexGrow: 6
   },
   title: {
     fontWeight: 'bold',
@@ -32,20 +27,17 @@ export default StyleSheet.create({
   description: {
     color: '#999999'
   },
-  price: {
+  oldPrice: {
+    fontWeight: 'bold',
+    color: '#999999',
+    textDecorationLine: 'line-through',
+    textAlign: 'center',
+    fontSize: 14
+  },
+  newPrice: {
     fontWeight: 'bold',
     color: '#F8C634',
     textAlign: 'center',
+    fontSize: 20
   },
-  actions: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  actionIcon: {
-    alignItems: 'center',
-    color: '#666666',
-    padding: 5,
-    paddingTop: 10
-  }
 });
